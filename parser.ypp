@@ -9,37 +9,35 @@
     void yyerror(const char*);
 %}
 
-%token VOID
-%token INT
-%token BYTE
-%token B
-%token BOOL
-%token TRUE
-%token FALSE
-%token RETURN
-%token IF
-%token WHILE
-%token BREAK
-%token CONTINUE
-%token SC
-%token COMMA
-
-%left LBRACE RBRACE
-%token ID
-%token NUM
-%token STRING
-
-%right ASSIGN
-%left OR
-%left AND
-%left EQ_RELOP
-%left RE_RELOP
-%left PM_BINOP
-%left MD_BINOP
-%right NOT
-%left LPAREN RPAREN
-
-%nonassoc ELSE
+%nonassoc VOID;
+%nonassoc INT;
+%nonassoc BYTE;
+%nonassoc B;
+%nonassoc BOOL;
+%nonassoc OVERRIDE;
+%nonassoc AND;
+%nonassoc OR;
+%nonassoc NOT;
+%nonassoc TRUE;
+%nonassoc FALSE;
+%nonassoc RETURN;
+%nonassoc IF;
+%nonassoc ELSE;
+%nonassoc WHILE;
+%nonassoc BREAK;
+%nonassoc CONTINUE;
+%nonassoc SC;
+%nonassoc COMMA;
+%nonassoc LPAREN;
+%nonassoc RPAREN;
+%nonassoc LBRACE;
+%nonassoc RBRACE;
+%nonassoc ASSIGN;
+%nonassoc RELOP;
+%nonassoc BINOP;
+%nonassoc ID;                                                                      
+%nonassoc NUM;    
+%nonassoc STRING;
 
 %%
 
