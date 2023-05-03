@@ -15,32 +15,40 @@
 %nonassoc B;
 %nonassoc BOOL;
 %nonassoc OVERRIDE;
-%nonassoc AND;
-%nonassoc OR;
-%nonassoc NOT;
 %nonassoc TRUE;
 %nonassoc FALSE;
 %nonassoc RETURN;
-%nonassoc IF;
+
+
+
+%right    IF;
 %nonassoc ELSE;
 %nonassoc WHILE;
 %nonassoc BREAK;
 %nonassoc CONTINUE;
 %nonassoc SC;
 %nonassoc COMMA;
-%nonassoc LPAREN;
-%nonassoc RPAREN;
 %nonassoc LBRACE;
 %nonassoc RBRACE;
-%nonassoc ASSIGN;
-%nonassoc RELOP;
-%nonassoc BINOP;
 %nonassoc ID;                                                                      
 %nonassoc NUM;    
 %nonassoc STRING;
 
-%%
+%right ASSIGN;
 
+%left OR;
+%left AND;
+
+
+%left EQOP;
+%left RELOP;
+%left BINOP;
+
+%right NOT;
+%left LPAREN;
+%left RPAREN;
+
+%%
 Program
     : Funcs { printProductionRule(1); }
     ;

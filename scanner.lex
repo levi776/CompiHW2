@@ -15,7 +15,8 @@ string                                          (\"([^\n\r\"\\]|\\[rnt"\\])+\")
 num                                             (0|[1-9][0-9]*)
 id                                              ([a-zA-Z][a-zA-Z0-9]*)
 binop                                           ([-+*/])
-relop                                           ([<>=!]=|>|<)
+relop                                           ([<>]=|>|<)
+eqop                                            ([=!]=)
 %%
 void                                                                                return VOID;
 int                                                                                 return INT;
@@ -42,6 +43,7 @@ continue                                                                        
 \}                                                                                  return RBRACE;
 =                                                                                   return ASSIGN;
 {relop}                                                                             return RELOP;
+{eqop}                                                                              return EQOP;
 {binop}                                                                             return BINOP;
 {id}                                                                                return ID;                                                                      
 {num}                                                                               return NUM;    
