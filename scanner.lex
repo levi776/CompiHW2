@@ -3,7 +3,7 @@
 /* Declarations section */
 #include <stdio.h>
 #include "tokens.hpp"
-
+#include "parser.tab.hpp"
 %}
 
 %option yylineno
