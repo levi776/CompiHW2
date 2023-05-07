@@ -46,7 +46,7 @@
 
 %right NOT;
 %left LPAREN;
-%left RPAREN ;
+%left RPAREN  ;
 
 %%
 Program
