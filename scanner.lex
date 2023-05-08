@@ -2,6 +2,7 @@
 
 /* Declarations section */
 #include <stdio.h>
+#include "output.hpp"
 #include "tokens.hpp"
 #include "parser.tab.hpp"
 %}
@@ -51,6 +52,7 @@ continue                                                                        
 {num}                                                                               return NUM;    
 {string}                                                                            return STRING;
 {whitespace}                                                                        ;
+{comment}                                                                           ;
 .                                                                                   return ERROR;
 %%
 

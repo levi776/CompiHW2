@@ -8,7 +8,7 @@
     int yylex();
     void yyerror(const char*);
 %}
-
+%define parse.error verbose;
 %nonassoc VOID;
 %nonassoc INT;
 %nonassoc BYTE;
@@ -20,7 +20,7 @@
 %nonassoc RETURN;
 
 
-
+%token ERROR;
 %nonassoc IF;
 %nonassoc WHILE;
 %nonassoc BREAK;
@@ -63,8 +63,9 @@ FuncDecl
     : OverRide RetType ID LPAREN Formals RPAREN LBRACE Statements RBRACE { printProductionRule(4); }
     ;
 OverRide
-    : /*epsilon*/ {printProductionRule(5);}
+    :/*epsilon*/ {printProductionRule(5);}
     | OVERRIDE {printProductionRule(6);}
+    ;
 
 RetType
     : Type { printProductionRule(7); }
@@ -140,7 +141,7 @@ Exp
     ;
 
 %%
-void yyerror(const char* s ) { errorSyn(yylineno); }
+void yyerror(const char* s ) { errorSyn(yylineno); std::cerr<<"Error"<<s<<std::endl; }
 
 
 int main()
