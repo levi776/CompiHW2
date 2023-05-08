@@ -21,8 +21,7 @@
 
 
 
-%right    IF;
-%nonassoc ELSE;
+%nonassoc IF;
 %nonassoc WHILE;
 %nonassoc BREAK;
 %nonassoc CONTINUE;
@@ -40,13 +39,15 @@
 %left AND;
 
 
-%left EQOP;
-%left RELOP;
-%left BINOP;
+%left EQ_RELOP;
+%left RE_RELOP;
+%left PM_BINOP;
+%left MD_BINOP;
 
 %right NOT;
 %left LPAREN;
 %left RPAREN;
+%nonassoc ELSE;
 
 %%
 Program
@@ -97,7 +98,7 @@ Statement
     | RETURN SC { printProductionRule(21); }
     | RETURN Exp SC { printProductionRule(22); }
     | IF LPAREN Exp RPAREN Statement { printProductionRule(23); }
-    | IF LPAREN Exp RPAREN Statement ELSE Statement{ printProductionRule(24); }
+    | IF LPAREN Exp RPAREN Statement ELSE Statement { printProductionRule(24); }
     | WHILE LPAREN Exp RPAREN Statement { printProductionRule(25); }
     | BREAK SC { printProductionRule(26); }
     | CONTINUE SC { printProductionRule(27); }

@@ -14,7 +14,8 @@ comment                                         (\/\/[^\r\n]*[\r]?[\n]?)
 string                                          (\"([^\n\r\"\\]|\\[rnt"\\])+\")
 num                                             (0|[1-9][0-9]*)
 id                                              ([a-zA-Z][a-zA-Z0-9]*)
-binop                                           ([-+*/])
+md_binop                                           ([*/])
+pm_binop                                        ([-+])
 relop                                           ([<>]=|>|<)
 eqop                                            ([=!]=)
 %%
@@ -42,9 +43,10 @@ continue                                                                        
 \{                                                                                  return LBRACE;
 \}                                                                                  return RBRACE;
 =                                                                                   return ASSIGN;
-{relop}                                                                             return RELOP;
-{eqop}                                                                              return EQOP;
-{binop}                                                                             return BINOP;
+{relop}                                                                             return RE_RELOP;
+{eqop}                                                                              return EQ_RELOP;
+{md_binop}                                                                          return MD_BINOP;
+{pm_binop}                                                                          return PM_BINOP;
 {id}                                                                                return ID;                                                                      
 {num}                                                                               return NUM;    
 {string}                                                                            return STRING;
