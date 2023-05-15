@@ -15,7 +15,7 @@ comment                                         (\/\/[^\r\n]*[\r]?[\n]?)
 string                                          (\"([^\n\r\"\\]|\\[rnt"\\])+\")
 num                                             (0|[1-9][0-9]*)
 id                                              ([a-zA-Z][a-zA-Z0-9]*)
-md_binop                                           ([*/])
+md_binop                                         ([*/])
 pm_binop                                        ([-+])
 relop                                           ([<>]=|>|<)
 eqop                                            ([=!]=)
@@ -51,8 +51,8 @@ continue                                                                        
 {id}                                                                                return ID;                                                                      
 {num}                                                                               return NUM;    
 {string}                                                                            return STRING;
-{whitespace}                                                                        ;
+{whitespace}*                                                                       ;
 {comment}                                                                           ;
-.                                                                                   return ERROR;
+.                                                                                   {output::errorLex(yylineno);exit(0);}
 %%
 

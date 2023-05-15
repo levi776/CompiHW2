@@ -19,7 +19,7 @@
 %nonassoc FALSE;
 %nonassoc RETURN;
 
-
+%token V;
 %token ERROR;
 %nonassoc IF;
 %nonassoc WHILE;
@@ -68,8 +68,8 @@ OverRide
     ;
 
 RetType
-    : Type { printProductionRule(7); }
-    | VOID { printProductionRule(8); }
+    : VOID { printProductionRule(8); } 
+    | Type { printProductionRule(7); }
     ;
 
 Formals
@@ -141,7 +141,7 @@ Exp
     ;
 
 %%
-void yyerror(const char* s ) { errorSyn(yylineno); std::cerr<<"Error"<<s<<std::endl; }
+void yyerror(const char* s ) { errorSyn(yylineno);}
 
 
 int main()
